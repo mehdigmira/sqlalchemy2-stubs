@@ -58,7 +58,7 @@ _OrderByArgument = Union[
     ],
 ]
 
-class RelationshipProperty(StrategizedProperty[_T]):
+class RelationshipProperty(StrategizedProperty[_T], attributes.Mapped):
     strategy_wildcard_key: str
     inherit_cache: bool
     uselist: Optional[bool]

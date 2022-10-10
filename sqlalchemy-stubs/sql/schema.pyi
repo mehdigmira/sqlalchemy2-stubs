@@ -16,6 +16,8 @@ from typing import Union
 
 from typing_extensions import Literal
 
+from sqlalchemy.orm.attributes import Mapped
+
 from . import functions
 from . import roles
 from . import sqltypes
@@ -138,7 +140,7 @@ class Table(DialectKWArgs, SchemaItem, TableClause):
     @_autoincrement_column.setter
     def _autoincrement_column(self, value: Optional[Column[Any]]) -> None: ...
 
-class Column(DialectKWArgs, SchemaItem, ColumnClause[_TE]):
+class Column(Mapped, DialectKWArgs, SchemaItem, ColumnClause[_TE]):
     __visit_name__: str = ...
     name: str = ...
     inherit_cache: bool = ...
@@ -265,7 +267,7 @@ class ForeignKey(DialectKWArgs, SchemaItem):
     match: Optional[str] = ...
     def __init__(
         self,
-        column: Union[Column[Any], str],
+        column: Union[Column[Any], str, Mapped[Any]],
         _constraint: Optional[ForeignKeyConstraint] = ...,
         use_alter: bool = ...,
         name: Optional[str] = ...,

@@ -51,7 +51,7 @@ class Query(
     session: Optional[_SessionProtocol] = ...
     def __init__(
         self,
-        entities: Iterable[Any],
+        entities: Any,
         session: Optional[_SessionProtocol] = ...,
     ) -> None: ...
     @property

@@ -6,7 +6,7 @@ from . import exc as exc
 from . import util as util
 from .engine.base import Connection
 from .engine.base import Engine
-from .engine.reflection import Inspector
+from .orm import Inspector
 from .orm import InstanceState
 from .orm import Mapper
 
